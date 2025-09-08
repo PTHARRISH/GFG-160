@@ -16,10 +16,24 @@ def getSecondLargest(arr):
             return -1
         return second
 
-
+# Algorithm Used: 
+# Single Pass Linear Search
 # T.C = O(n)
 # S.C = O(1)
 
+# Where Can You Use This Approach?
+# Finding Kth largest element (extend to third, fourth largest)
+# Finding min/max in single pass
+# Finding second smallest number
+# Salary/score ranking systems
+# Competition leaderboards
+# Stock price analysis (second highest price)
+
+# Advantages
+# Only one pass through the data
+# Memory efficient
+# Handles duplicates correctly
+# Fast for unsorted data
 
 # Using Two iteration
 # def getSecondLargest(arr):
