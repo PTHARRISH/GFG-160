@@ -1,4 +1,19 @@
 # Best Approach
+
+# Greedy Approach
+def maxProduct(arr):
+    n = len(arr)
+    res = arr[0]
+    max_end = arr[0]
+    min_end = arr[0]
+    for i in range(1, n):
+        temp = max(arr[i], max_end * arr[i], min_end * arr[i])
+        min_end = min(arr[i], max_end * arr[i], min_end * arr[i])
+        max_end = temp
+        res = max(res, max_end)
+    return res
+
+
 # Iterative method
 def maxProduct(arr):
     n = len(arr)
@@ -22,6 +37,10 @@ print(maxProduct(arr))
 # As input size doubles, time taken increases by a factor of four
 # Not optimal for large inputs -
 # Becomes impractical for large arrays
+
+# Note:
+# There is a more optimal O(n) solution using dynamic programming
+# for the maximum product subarray problem.
 # Space Complexity: O(1)
 # Constant extra space -
 # Only uses a few variables (res, curr_sum, array length)
