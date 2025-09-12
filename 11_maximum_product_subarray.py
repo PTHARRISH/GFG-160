@@ -1,4 +1,28 @@
+# 11.Maximum Product Subarray
 # Best Approach
+def maxProduct(arr):
+    n = len(arr)
+    max_pro = float("-inf")
+    lefttoright = 1
+    righttoleft = 1
+    for i in range(n):
+        if lefttoright == 0:
+            lefttoright = 1
+        elif righttoleft == 0:
+            righttoleft = 1
+        lefttoright *= arr[i]
+        righttoleft *= arr[n - i - 1]
+        max_pro = max(max_pro, lefttoright, righttoleft)
+
+    return max_pro
+
+
+# Time Complexity: O(n)
+# Single pass through the array - O(n)
+# Constant time operations - O(1)
+# Linear growth - As array size doubles, time taken doubles
+# Optimal for this problem - Can't solve maximum product subarray in less than O(n) time
+
 
 # Greedy Approach
 def maxProduct(arr):
