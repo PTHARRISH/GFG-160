@@ -1,5 +1,26 @@
 # 12.Maximum Circular Sum
-# Best Approach
+# Best Approach - Single Loop
+def maxCircularSum(arr):
+    n = len(arr)
+    current_max = 0
+    current_min = 0
+    min_sum = arr[0]
+    max_sum = arr[0]
+    total = 0
+    for i in range(n):
+        current_max = max(arr[i] + current_max, arr[i])
+        max_sum = max(max_sum, current_max)
+        current_min = min(arr[i] + current_min, arr[i])
+        min_sum = min(min_sum, current_min)
+        total += arr[i]
+    normal = max_sum
+    circular = total - min_sum
+    if total == min_sum:
+        return normal
+    return max(circular, normal)
+
+
+# Two loops approach
 def maxCircularSum(arr):
     n = len(arr)  # length of the array
     suffix = arr[n - 1]  # initialize suffix with the last element
